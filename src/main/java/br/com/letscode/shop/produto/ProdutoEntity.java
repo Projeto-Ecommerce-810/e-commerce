@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
-
+//teste
 @Entity(name = "PRODUTO")
 @Builder
 @Data
