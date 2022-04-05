@@ -1,19 +1,13 @@
 package br.com.letscode.shop.produto;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @RequestMapping("produtos")
@@ -35,6 +29,22 @@ public class ProdutoController {
         return ResponseEntity.ok(produtos);
     }
 
+    @PatchMapping("/alterar/{id}")
+    public ResponseEntity<ProdutoEntity> alterar(
+            @PathVariable(name = "id") Long id,
+            @RequestParam(name = "nome", required = false) String nome,
+            @RequestParam(name = "valor", required = false) BigDecimal valor,
+            @RequestParam(name = "descricao", required = false) String descricao,
+            @RequestParam(name = "fabricante", required = false) Long fabricante,
+            @RequestParam(name = "peso", required = false) Integer peso
+    ){
+        ProdutoEntity entity = produtoService.alterarPorId(id, nome, valor, descricao, fabricante, peso);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(entity);
+    }
+
     @PostMapping
     public ResponseEntity<ProdutoEntity> create(
             @RequestBody ProdutoRequest request
@@ -49,5 +59,14 @@ public class ProdutoController {
 
         ProdutoEntity produto = produtoService.buscarPorCodigoBarra(codigoBarra);
         return ResponseEntity.ok(produto);
+    }
+
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<Long> deleteById(
+        @PathVariable(name = "id") Long id
+    ){
+        produtoService.deleteById(id);
+
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }

@@ -3,22 +3,12 @@ package br.com.letscode.shop.produto;
 import br.com.letscode.shop.fabricante.FabricanteEntity;
 import br.com.letscode.shop.fabricante.FabricanteRepository;
 import lombok.AllArgsConstructor;
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.internal.CriteriaImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,6 +34,23 @@ public class ProdutoService {
                 pageable
         );
     }
+
+    public ProdutoEntity alterarPorId(
+            Long id,
+            String nome,
+            BigDecimal valor,
+            String descricao,
+            Long fabricante,
+            Integer peso
+    ){
+        ProdutoEntity produto = produtoRepository.findId(id);
+
+        alterEntity(produto, nome, valor, descricao, fabricante, peso);
+        produtoRepository.save(produto);
+
+        return produto;
+    }
+
 
     //public ProdutoEntity buscarPorId(Long id){
         //return produtoRepository.findById(id).get();//TODO adicionar tratativa para optional empty
@@ -77,6 +84,12 @@ public class ProdutoService {
 //        return produtoRepository.findById(id).orElseThrow(() -> );
 //    }
 
+
+    public void deleteById(Long id){
+        produtoRepository.deleteById(id);
+    }
+
+
     private  ProdutoEntity toEntity(ProdutoRequest produtoRequest,
                                     FabricanteEntity fabricante){
         return new ProdutoEntity(
@@ -88,6 +101,32 @@ public class ProdutoService {
                 produtoRequest.getPeso(),
                 produtoRequest.getPesoUnidadeMedida()
         );
+    }
+
+    private ProdutoEntity alterEntity(ProdutoEntity entity,
+                                            String nome,
+                                            BigDecimal valor,
+                                            String descricao,
+                                            Long fabricante,
+                                            Integer peso
+    ){
+        if (nome != null){
+            entity.setNome(nome);
+        }
+        if (valor != null){
+            entity.setValor(valor);
+        }
+        if (descricao != null){
+            entity.setDescricao(descricao);
+        }
+        if (fabricante != null){
+            entity.setFabricante(fabricanteRepository.getById(fabricante));
+        }
+        if (peso != null){
+            entity.setPeso(peso);
+        }
+
+        return entity;
     }
 
     static Specification<ProdutoEntity> valorMenorQue(BigDecimal valor) {
