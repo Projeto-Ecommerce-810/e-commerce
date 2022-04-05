@@ -16,8 +16,8 @@ public interface ProdutoRepository extends JpaRepository<ProdutoEntity,Long> , J
     @Query(value = "SELECT * FROM PRODUTO where codigo_barra = ?1", nativeQuery = true)
     ProdutoEntity findByCodigoBarra(String codigoBarra);
 
-    @Query(value = "SELECT * FROM PRODUTO where id = ?1", nativeQuery = true)
-    ProdutoEntity findId(Long id);
+//    @Query(value = "SELECT * FROM PRODUTO where id = ?1", nativeQuery = true)
+//    ProdutoEntity findId(Long id);
 
 //    @Query(value = "SELECT sum(valor) FROM PRODUTO where id_fabricante = ?1", nativeQuery = true)
 //    BigDecimal sumProductValuesByFabricante(Long idFabricante);

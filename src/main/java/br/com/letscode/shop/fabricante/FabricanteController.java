@@ -25,15 +25,6 @@ public class FabricanteController {
                 .body(fabricantes);
     }
 
-    @DeleteMapping("/deletar/{id}")
-    public ResponseEntity<Long> deleteById(
-            @PathVariable(name = "id") Long id
-    ){
-        fabricanteService.deleteById(id);
-
-        return new ResponseEntity<>(id, HttpStatus.OK);
-    }
-
     @PostMapping
     public ResponseEntity<FabricanteEntity> create(@RequestBody FabricanteRequest request){
 

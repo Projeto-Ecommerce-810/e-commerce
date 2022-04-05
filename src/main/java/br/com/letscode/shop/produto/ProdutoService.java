@@ -24,7 +24,6 @@ public class ProdutoService {
     public Page<ProdutoEntity> buscarTodos(Integer offset,
                                            Integer limit,
                                            String nome,
-//                                           String nomeFabricante,
                                            BigDecimal valor
     ) {
         Pageable pageable = new OffsetLimitPageable(offset, limit);
@@ -43,7 +42,7 @@ public class ProdutoService {
             Long fabricante,
             Integer peso
     ){
-        ProdutoEntity produto = produtoRepository.findId(id);
+        ProdutoEntity produto = produtoRepository.findById(id).get();
 
         alterEntity(produto, nome, valor, descricao, fabricante, peso);
         produtoRepository.save(produto);

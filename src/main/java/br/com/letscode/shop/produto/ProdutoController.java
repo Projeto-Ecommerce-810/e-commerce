@@ -21,8 +21,6 @@ public class ProdutoController {
             @RequestParam(name = "offset") Integer offset,
             @RequestParam(name = "limit") Integer limit,
             @RequestParam(name = "nome", required = false) String nome,
-//            @RequestParam(name = "dataCriacao") String dataCriacao,
-//            @RequestParam(name = "fabricante") String fabricante,
             @RequestParam(name = "valor_maximo", required = false) BigDecimal valorMaximo
     ){
         Page<ProdutoEntity> produtos = produtoService.buscarTodos(offset, limit, nome, valorMaximo);

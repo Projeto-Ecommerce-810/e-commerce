@@ -1,5 +1,7 @@
 package br.com.letscode.shop.fabricante;
 
+import br.com.letscode.shop.produto.ProdutoEntity;
+import br.com.letscode.shop.produto.ProdutoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +12,10 @@ import java.util.List;
 public class FabricanteService {
 
     private FabricanteRepository fabricanteRepository;
+    private ProdutoRepository produtoRepository;
 
     public List<FabricanteEntity> getAll(){
         return fabricanteRepository.findAll();
-    }
-
-    public void deleteById(Long id) {
-        fabricanteRepository.deleteById(id);
     }
 
     public FabricanteEntity criar(FabricanteRequest request) {
