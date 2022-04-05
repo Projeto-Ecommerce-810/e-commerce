@@ -31,8 +31,6 @@ public class ProdutoService {
     private ProdutoRepository produtoRepository;
     private FabricanteRepository fabricanteRepository;
 
-    private EntityManager entityManager;
-
     public Page<ProdutoEntity> buscarTodos(Integer offset,
                                            Integer limit,
                                            String nome,
@@ -41,49 +39,15 @@ public class ProdutoService {
     ) {
         Pageable pageable = new OffsetLimitPageable(offset, limit);
 
-/*
-    Filtro com Criteria
-  */
-//        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-//        CriteriaQuery<ProdutoEntity> query = criteriaBuilder.createQuery(ProdutoEntity.class);
-//        Root<ProdutoEntity> produto = query.from(ProdutoEntity.class);
-//
-//        List<Predicate> predicates = new ArrayList();
-//
-//        if (nome != null){
-//            predicates.add(criteriaBuilder.like(produto.get("nome"), "%"+nome+"%"));
-//        }
-//
-//        predicates.add(criteriaBuilder.or(
-//                criteriaBuilder.equal(produto.get("nome"), "Pablo"),
-//                criteriaBuilder.equal(produto.get("nome"), "Diogo")
-//        ));
-////        /**
-////        select * from produto
-////        where valor <= 12
-////        and nome = Pablo or nome = Diogo
-////        */
-//
-//        if(valor != null ) {
-//            predicates.add(criteriaBuilder.lessThanOrEqualTo(produto.get("valor"), valor));
-//        }
-//
-//        query.where(criteriaBuilder.and(predicates.toArray(new Predicate[0])));
-//
-//        return entityManager.createQuery(query).getResultList();
-
- /*
-    Filtro com Specification
-  */
         return produtoRepository.findAll(
                 where(nomeContem(nome)).and(valorMenorQue(valor)),
                 pageable
         );
     }
 
-    public ProdutoEntity buscarPorId(Long id){
-        return produtoRepository.findById(id).get();//TODO adicionar tratativa para optional empty
-    }
+    //public ProdutoEntity buscarPorId(Long id){
+        //return produtoRepository.findById(id).get();//TODO adicionar tratativa para optional empty
+    //}
 
     public ProdutoEntity buscarPorCodigoBarra(String codigoBarra){
             return produtoRepository.findByCodigoBarra(codigoBarra);
@@ -92,7 +56,7 @@ public class ProdutoService {
     public ProdutoEntity criar(ProdutoRequest produtoRequest){
 
         Optional<FabricanteEntity> fabricanteEntity = fabricanteRepository.findById(produtoRequest.getIdFabricante());
-        //TODO implementar exception para o sistema
+
         ProdutoEntity produtoEntity = toEntity(produtoRequest, fabricanteEntity.get());
 
         return produtoRepository.save(produtoEntity);

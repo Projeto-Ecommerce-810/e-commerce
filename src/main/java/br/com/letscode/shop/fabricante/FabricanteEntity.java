@@ -24,8 +24,7 @@ import java.util.List;
 public class FabricanteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fabricante_seq")
-    @SequenceGenerator(name = "fabricante_seq", sequenceName = "fabricante_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nome")
