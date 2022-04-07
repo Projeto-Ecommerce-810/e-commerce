@@ -1,4 +1,4 @@
-package br.com.letscode.shop.fabricante;
+package br.com.letscode.shop.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

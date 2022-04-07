@@ -1,21 +1,15 @@
-package br.com.letscode.shop.fabricante;
+package br.com.letscode.shop.domain.model;
 
-import br.com.letscode.shop.produto.ProdutoEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import java.time.ZonedDateTime;
-import java.util.List;
 
 @Entity(name = "FABRICANTE")
 @Data

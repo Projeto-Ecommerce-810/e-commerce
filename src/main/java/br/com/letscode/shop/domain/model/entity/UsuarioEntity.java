@@ -1,4 +1,4 @@
-package br.com.letscode.shop.usuario;
+package br.com.letscode.shop.domain.model;
 
 import lombok.*;
 

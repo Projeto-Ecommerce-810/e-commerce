@@ -1,13 +1,10 @@
 package br.com.letscode.shop.produto;
 
+import br.com.letscode.shop.domain.model.ProdutoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<ProdutoEntity,Long> , JpaSpecificationExecutor<ProdutoEntity> {

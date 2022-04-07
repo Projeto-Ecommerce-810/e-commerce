@@ -1,8 +1,10 @@
 package br.com.letscode.shop.usuario;
 
+import br.com.letscode.shop.domain.model.entity.UsuarioEntity;
+import br.com.letscode.shop.domain.model.exchange.UsuarioRequest;
+import br.com.letscode.shop.domain.repository.UsuarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.time.ZonedDateTime;
 import java.util.List;

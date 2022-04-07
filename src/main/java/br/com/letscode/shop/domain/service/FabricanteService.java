@@ -1,7 +1,9 @@
 package br.com.letscode.shop.fabricante;
 
-import br.com.letscode.shop.produto.ProdutoEntity;
-import br.com.letscode.shop.produto.ProdutoRepository;
+import br.com.letscode.shop.domain.model.entity.FabricanteEntity;
+import br.com.letscode.shop.domain.model.exchange.FabricanteRequest;
+import br.com.letscode.shop.domain.repository.FabricanteRepository;
+import br.com.letscode.shop.domain.repository.ProdutoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

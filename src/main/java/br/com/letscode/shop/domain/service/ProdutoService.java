@@ -1,7 +1,10 @@
 package br.com.letscode.shop.produto;
 
-import br.com.letscode.shop.fabricante.FabricanteEntity;
-import br.com.letscode.shop.fabricante.FabricanteRepository;
+import br.com.letscode.shop.domain.model.entity.FabricanteEntity;
+import br.com.letscode.shop.domain.model.entity.ProdutoEntity;
+import br.com.letscode.shop.domain.model.exchange.ProdutoRequest;
+import br.com.letscode.shop.domain.repository.FabricanteRepository;
+import br.com.letscode.shop.domain.repository.ProdutoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,7 +12,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.data.jpa.domain.Specification.where;

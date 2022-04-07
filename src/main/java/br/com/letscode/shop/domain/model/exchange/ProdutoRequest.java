@@ -1,4 +1,4 @@
-package br.com.letscode.shop.produto;
+package br.com.letscode.shop.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
