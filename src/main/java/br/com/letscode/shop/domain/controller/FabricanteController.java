@@ -1,5 +1,8 @@
-package br.com.letscode.shop.fabricante;
+package br.com.letscode.shop.domain.controller;
 
+import br.com.letscode.shop.domain.model.entity.FabricanteEntity;
+import br.com.letscode.shop.domain.model.exchange.FabricanteRequest;
+import br.com.letscode.shop.domain.service.FabricanteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

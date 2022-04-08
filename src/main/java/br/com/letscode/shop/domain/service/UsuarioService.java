@@ -1,4 +1,4 @@
-package br.com.letscode.shop.usuario;
+package br.com.letscode.shop.domain.service;
 
 import br.com.letscode.shop.domain.model.entity.UsuarioEntity;
 import br.com.letscode.shop.domain.model.exchange.UsuarioRequest;

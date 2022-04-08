@@ -1,5 +1,8 @@
-package br.com.letscode.shop.usuario;
+package br.com.letscode.shop.domain.controller;
 
+import br.com.letscode.shop.domain.model.entity.UsuarioEntity;
+import br.com.letscode.shop.domain.model.exchange.UsuarioRequest;
+import br.com.letscode.shop.domain.service.UsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;

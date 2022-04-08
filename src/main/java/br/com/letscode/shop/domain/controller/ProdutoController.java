@@ -1,5 +1,8 @@
-package br.com.letscode.shop.produto;
+package br.com.letscode.shop.domain.controller;
 
+import br.com.letscode.shop.domain.model.entity.ProdutoEntity;
+import br.com.letscode.shop.domain.model.exchange.ProdutoRequest;
+import br.com.letscode.shop.domain.service.ProdutoService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -7,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 @AllArgsConstructor
 @RequestMapping("produtos")

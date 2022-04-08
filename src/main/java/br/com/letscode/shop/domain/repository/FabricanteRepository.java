@@ -1,6 +1,6 @@
-package br.com.letscode.shop.fabricante;
+package br.com.letscode.shop.domain.repository;
 
-import br.com.letscode.shop.domain.model.FabricanteEntity;
+import br.com.letscode.shop.domain.model.entity.FabricanteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

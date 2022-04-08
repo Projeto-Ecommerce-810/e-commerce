@@ -1,4 +1,4 @@
-package br.com.letscode.shop.fabricante;
+package br.com.letscode.shop.domain.service;
 
 import br.com.letscode.shop.domain.model.entity.FabricanteEntity;
 import br.com.letscode.shop.domain.model.exchange.FabricanteRequest;

@@ -1,19 +1,21 @@
-package br.com.letscode.shop.produto;
+package br.com.letscode.shop.domain.service;
 
 import br.com.letscode.shop.domain.model.entity.FabricanteEntity;
 import br.com.letscode.shop.domain.model.entity.ProdutoEntity;
 import br.com.letscode.shop.domain.model.exchange.ProdutoRequest;
 import br.com.letscode.shop.domain.repository.FabricanteRepository;
 import br.com.letscode.shop.domain.repository.ProdutoRepository;
+import br.com.letscode.shop.domain.model.pagination.OffsetLimitPageable;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import static br.com.letscode.shop.domain.specification.ProdutoSpecifications.nomeContem;
+import static br.com.letscode.shop.domain.specification.ProdutoSpecifications.valorMenorQue;
 import static org.springframework.data.jpa.domain.Specification.where;
 
 @AllArgsConstructor
@@ -128,13 +130,6 @@ public class ProdutoService {
         }
 
         return entity;
-    }
-
-    static Specification<ProdutoEntity> valorMenorQue(BigDecimal valor) {
-        return valor == null ? null : (produtoEntity, cq, cb) -> cb.lessThanOrEqualTo(produtoEntity.get("valor"),valor);
-    }
-    static Specification<ProdutoEntity> nomeContem(String nome) {
-        return nome == null ? null : (produtoEntity, cq, cb) -> cb.like(produtoEntity.get("nome"), "%" + nome + "%");
     }
 
 }

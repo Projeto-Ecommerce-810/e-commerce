@@ -1,2 +1,7 @@
-package br.com.letscode.shop.infra.config;public class SpringWebSecurityInitializer {
+package br.com.letscode.shop.infra.config;
+
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
+public class SpringWebSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+
 }

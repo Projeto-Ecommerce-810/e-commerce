@@ -1,4 +1,4 @@
-package br.com.letscode.shop.domain.model;
+package br.com.letscode.shop.domain.model.exchange;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
