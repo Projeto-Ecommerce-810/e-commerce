@@ -2,10 +2,9 @@ package br.com.letscode.shop.domain.controller;
 
 import br.com.letscode.shop.domain.model.exchange.AutenticacaoRequest;
 import br.com.letscode.shop.domain.model.exchange.AutenticacaoResponse;
-import br.com.letscode.shop.autenticacao.TokenUtil;
+import br.com.letscode.shop.util.TokenUtil;
 import br.com.letscode.shop.domain.service.UsuarioDetalheService;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

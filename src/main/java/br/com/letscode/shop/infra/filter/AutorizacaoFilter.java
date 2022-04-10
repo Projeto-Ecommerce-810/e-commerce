@@ -1,9 +1,8 @@
 package br.com.letscode.shop.infra.filter;
 
-import br.com.letscode.shop.autenticacao.TokenUtil;
+import br.com.letscode.shop.util.TokenUtil;
 import br.com.letscode.shop.domain.service.UsuarioDetalheService;
 import io.jsonwebtoken.ExpiredJwtException;
-import org.hibernate.annotations.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,7 +40,6 @@ public class AutorizacaoFilter extends OncePerRequestFilter {
          if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")){
              jwt = requestTokenHeader.substring(7);
 
-             //2:10
 
              try{
                  usuario = tokenUtil.getUsernameFromToken(jwt);
