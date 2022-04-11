@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Entity(name = "USUARIO")
 @Builder
